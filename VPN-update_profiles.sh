@@ -4,8 +4,8 @@
 # This script is to be executed from the folder where all the profiles to import are.
 #
 # DEFINE your username and password here:
-USERNAME=
-PASSWORD=
+USERNAME=username_here
+PASSWORD=password_here
 #
 #
 for file in $PWD/*.ovpn
