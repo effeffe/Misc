@@ -1,0 +1,15 @@
+#!/bin/bash
+# Filippo Falezza ©2022 GPLv3 and later
+# Script to print automatically on a printer, unless output file has been specified
+#requires pdfjam and pdflatex
+
+PRINTER=UoB-Safe-Full
+
+if [ -z "$2" ]; then
+    UUID=$(uuidgen)
+    pdfjam $1 -o /tmp/print-$UUID.pdf --nup 1x2 --delta "0cm 5cm" #--frame true
+    lp -d $PRINTER /tmp/print-$UUID.pdf
+    rm /tmp/print-$UUID.pdf
+else
+    pdfjam $1 -o $2 --nup 1x2 --frame true --delta "0cm 5cm"
+fi
